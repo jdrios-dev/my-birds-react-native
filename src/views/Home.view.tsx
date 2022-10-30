@@ -1,18 +1,31 @@
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+import NextToFind from '../components/NextToFind';
+import PopularBirds from '../components/PopularBirds';
+import TextInputMB from '../components/TextInput';
 
 export const HomeView = () => {
+  const inputAccessoryViewID = 'uniqueID';
+  const initialText = '';
+  const [text, setText] = React.useState(initialText);
+
   return (
     <View style={styles.container}>
-      <Text>Home</Text>
+      <TextInputMB
+        inputAccessoryViewID={inputAccessoryViewID}
+        onChange={setText}
+        value={text}
+        placeholder="Search…"
+      />
+      <PopularBirds />
+      <NextToFind />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: 'center',
-    alignItems: 'center',
     flex: 1,
+    backgroundColor: 'white',
   },
 });
