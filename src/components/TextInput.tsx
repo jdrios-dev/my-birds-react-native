@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
     borderColor: colors.mainDark,
     borderRadius: 50,
     textDecorationColor: colors.mainDark,
+    fontSize: 20,
   },
 });
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import {colors} from '../lib/theme';
+import {View, StyleSheet, FlatList} from 'react-native';
 import {Bird} from '../lib/types';
+import CardBird from './CardBird';
 import Title from './Title';
 
 const NextToFind = () => {
@@ -36,32 +36,45 @@ const NextToFind = () => {
       image: null,
       name: 'Black-headed hemispingus',
     },
+    {
+      id: '7',
+      image: null,
+      name: 'Grey seedeater',
+    },
+    {
+      id: '8',
+      image: null,
+      name: 'Black-throated flowerpiercer',
+    },
+    {
+      id: '9',
+      image: null,
+      name: 'Black-headed hemispingus',
+    },
   ];
-
-  type SpacingProps = {
-    item: number;
-  };
-
-  const Spacing = ({item}: SpacingProps) => {
-    if (item % 2 !== 0) {
-      return null;
-    }
-    return <View style={styles.spaceCardMasonry} />;
-  };
 
   return (
     <View style={styles.container}>
-      <Title title="Next birds to find" />
-      <View style={styles.cardsContainer}>
-        {data.map((bird, index) => (
-          <>
-            <View style={styles.birdCardContainer} key={bird.id}>
-              <Text>{bird.name}</Text>
-            </View>
-            <Spacing item={index} />
-          </>
-        ))}
-      </View>
+      <Title title="Next birds to discover!" />
+
+      <FlatList
+        style={styles.cardsContainer}
+        columnWrapperStyle={styles.spaceBetween}
+        data={data}
+        numColumns={2}
+        showsVerticalScrollIndicator={false}
+        renderItem={({item}) => {
+          return (
+            <CardBird
+              id={item.id}
+              name={item.name}
+              variant="dark"
+              img={item.image}
+              isMasonry
+            />
+          );
+        }}
+      />
     </View>
   );
 };
@@ -71,25 +84,16 @@ const styles = StyleSheet.create({
     padding: 16,
     width: '100%',
   },
-  birdCardContainer: {
-    borderColor: colors.mainDark,
-    borderWidth: 2,
-    backgroundColor: 'white',
-    padding: 16,
-    width: '48%',
-    borderRadius: 16,
-    marginBottom: 16,
-    minHeight: 180,
-  },
   cardsContainer: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    flexDirection: 'row',
+    flex: 1,
+    flexGrow: 0,
+    minHeight: 342,
   },
   spaceCardMasonry: {
     width: '4%',
     backgroundColor: 'transparent',
   },
+  spaceBetween: {justifyContent: 'space-between'},
 });
 
 export default NextToFind;

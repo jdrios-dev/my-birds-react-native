@@ -1,7 +1,8 @@
 import React from 'react';
-import {View, Text, StyleSheet, FlatList} from 'react-native';
+import {View, StyleSheet, FlatList} from 'react-native';
 import {colors} from '../lib/theme';
 import {Bird} from '../lib/types';
+import CardBird from './CardBird';
 import Title from './Title';
 
 const PopularBirds = () => {
@@ -44,9 +45,13 @@ const PopularBirds = () => {
 
   const renderItem = ({item}: RenderItemProps) => {
     return (
-      <View style={styles.birdCardContainer} key={item.id}>
-        <Text>{item.name}</Text>
-      </View>
+      <CardBird
+        id={item.id}
+        name={item.name}
+        variant="clear"
+        img={item.image}
+        isMasonry={false}
+      />
     );
   };
 
