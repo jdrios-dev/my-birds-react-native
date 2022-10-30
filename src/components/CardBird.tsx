@@ -1,6 +1,8 @@
 import React from 'react';
-import {StyleSheet, View, Text, Image} from 'react-native';
+import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import {colors} from '../lib/theme';
+import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 
 type CardBirdProps = {
   id: string;
@@ -10,21 +12,40 @@ type CardBirdProps = {
   isMasonry: boolean;
 };
 
+type RootBottomParam = {
+  Detail: {id: string};
+};
+
 const CardBird = ({name, variant, img, id, isMasonry}: CardBirdProps) => {
+  const navigation = useNavigation<BottomTabNavigationProp<RootBottomParam>>();
+
+  const onPress = () => {
+    navigation.navigate({
+      name: 'Detail',
+      params: {id},
+    });
+  };
   return (
-    <View
-      style={[
-        styles.birdCardContainer,
-        variant === 'dark' ? styles.bgDark : styles.bgClear,
-        isMasonry ? styles.withMasonry : styles.withoutMasonry,
-      ]}
-      key={id}>
-      <Image
-        source={img || require('../assets/bird_placeholder.png')}
-        style={styles.image}
-      />
-      <Text style={styles.name}>{name}</Text>
-    </View>
+    <TouchableOpacity onPress={onPress}>
+      <View
+        style={[
+          styles.birdCardContainer,
+          variant === 'dark' ? styles.bgDark : styles.bgClear,
+          isMasonry ? styles.withMasonry : styles.withoutMasonry,
+        ]}
+        key={id}>
+        {img ? (
+          <Image source={{uri: img as string}} style={styles.withImage} />
+        ) : (
+          <Image
+            source={require('../assets/bird_placeholder.png')}
+            style={styles.image}
+          />
+        )}
+
+        <Text style={styles.name}>{name}</Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 
@@ -32,7 +53,7 @@ const styles = StyleSheet.create({
   birdCardContainer: {
     borderColor: colors.mainDark,
     borderWidth: 2,
-    padding: 16,
+
     borderRadius: 16,
   },
   bgDark: {
@@ -42,7 +63,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   withMasonry: {
-    width: '48%',
+    width: 180,
     minHeight: 180,
     marginBottom: 16,
   },
@@ -57,9 +78,18 @@ const styles = StyleSheet.create({
     marginRight: 20,
     marginTop: 20,
   },
+  withImage: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
+    borderTopEndRadius: 14,
+    borderTopStartRadius: 14,
+  },
   name: {
     fontSize: 20,
     marginTop: 'auto',
+    margin: 16,
   },
 });
 

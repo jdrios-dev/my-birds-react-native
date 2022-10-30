@@ -1,58 +1,10 @@
 import React from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
-import {Bird} from '../lib/types';
+import {data} from '../lib/data';
 import CardBird from './CardBird';
 import Title from './Title';
 
 const NextToFind = () => {
-  const data: Bird[] = [
-    {
-      id: '1',
-      image: null,
-      name: 'Grey seedeater',
-    },
-    {
-      id: '2',
-      image: null,
-      name: 'Black-throated flowerpiercer',
-    },
-    {
-      id: '3',
-      image: null,
-      name: 'Black-headed hemispingus',
-    },
-    {
-      id: '4',
-      image: null,
-      name: 'Grey seedeater',
-    },
-    {
-      id: '5',
-      image: null,
-      name: 'Black-throated flowerpiercer',
-    },
-    {
-      id: '6',
-      image: null,
-      name: 'Black-headed hemispingus',
-    },
-    {
-      id: '7',
-      image: null,
-      name: 'Grey seedeater',
-    },
-    {
-      id: '8',
-      image: null,
-      name: 'Black-throated flowerpiercer',
-    },
-    {
-      id: '9',
-      image: null,
-      name: 'Black-headed hemispingus',
-    },
-  ];
-
   return (
     <View style={styles.container}>
       <Title title="Next birds to discover!" />

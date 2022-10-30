@@ -4,41 +4,9 @@ import {colors} from '../lib/theme';
 import {Bird} from '../lib/types';
 import CardBird from './CardBird';
 import Title from './Title';
+import {data} from '../lib/data';
 
 const PopularBirds = () => {
-  const data: Bird[] = [
-    {
-      id: '1',
-      image: null,
-      name: 'Grey seedeater',
-    },
-    {
-      id: '2',
-      image: null,
-      name: 'Black-throated flowerpiercer',
-    },
-    {
-      id: '3',
-      image: null,
-      name: 'Black-headed hemispingus',
-    },
-    {
-      id: '4',
-      image: null,
-      name: 'Grey seedeater',
-    },
-    {
-      id: '5',
-      image: null,
-      name: 'Black-throated flowerpiercer',
-    },
-    {
-      id: '6',
-      image: null,
-      name: 'Black-headed hemispingus',
-    },
-  ];
-
   type RenderItemProps = {
     item: Bird;
   };
