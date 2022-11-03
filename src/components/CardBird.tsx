@@ -1,5 +1,12 @@
 import React from 'react';
-import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  useWindowDimensions,
+} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {colors} from '../lib/theme';
 import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
@@ -17,6 +24,8 @@ type RootBottomParam = {
 };
 
 const CardBird = ({name, variant, img, id, isMasonry}: CardBirdProps) => {
+  const {width} = useWindowDimensions();
+  const cardWidth = (width - 16 * 2) / 2 - 8;
   const navigation = useNavigation<BottomTabNavigationProp<RootBottomParam>>();
 
   const onPress = () => {
@@ -26,26 +35,32 @@ const CardBird = ({name, variant, img, id, isMasonry}: CardBirdProps) => {
     });
   };
   return (
-    <TouchableOpacity onPress={onPress}>
-      <View
-        style={[
-          styles.birdCardContainer,
-          variant === 'dark' ? styles.bgDark : styles.bgClear,
-          isMasonry ? styles.withMasonry : styles.withoutMasonry,
-        ]}
-        key={id}>
-        {img ? (
-          <Image source={{uri: img as string}} style={styles.withImage} />
-        ) : (
-          <Image
-            source={require('../assets/bird_placeholder.png')}
-            style={styles.image}
-          />
-        )}
+    <View style={isMasonry ? styles.marginBottom : null}>
+      <TouchableOpacity
+        onPress={onPress}
+        style={isMasonry ? {width: cardWidth, height: cardWidth} : null}>
+        <View
+          style={[
+            styles.birdCardContainer,
+            variant === 'dark' ? styles.bgDark : styles.bgClear,
+            isMasonry ? styles.withMasonry : styles.withoutMasonry,
+          ]}
+          key={id}>
+          {img ? (
+            <Image source={{uri: img as string}} style={styles.withImage} />
+          ) : (
+            <Image
+              source={require('../assets/bird_placeholder.png')}
+              style={styles.image}
+            />
+          )}
 
-        <Text style={styles.name}>{name}</Text>
-      </View>
-    </TouchableOpacity>
+          <View style={styles.nameContainer}>
+            <Text style={styles.name}>{name}</Text>
+          </View>
+        </View>
+      </TouchableOpacity>
+    </View>
   );
 };
 
@@ -53,7 +68,6 @@ const styles = StyleSheet.create({
   birdCardContainer: {
     borderColor: colors.mainDark,
     borderWidth: 2,
-
     borderRadius: 16,
   },
   bgDark: {
@@ -63,13 +77,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   withMasonry: {
-    width: 180,
-    minHeight: 180,
-    marginBottom: 16,
+    width: '100%',
+    minHeight: '100%',
+    marginBottom: 2,
   },
   withoutMasonry: {
-    height: 180,
-    width: 180,
+    height: 160,
+    width: 160,
     marginRight: 16,
     marginBottom: 8,
   },
@@ -83,13 +97,25 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     resizeMode: 'cover',
-    borderTopEndRadius: 14,
-    borderTopStartRadius: 14,
+    borderRadius: 14,
   },
   name: {
     fontSize: 20,
     marginTop: 'auto',
-    margin: 16,
+    margin: 8,
+  },
+  nameContainer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: '40%',
+    borderBottomEndRadius: 14,
+    borderBottomStartRadius: 14,
+    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+  },
+  marginBottom: {
+    marginBottom: 16,
   },
 });
 

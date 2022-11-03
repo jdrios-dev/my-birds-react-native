@@ -8,9 +8,7 @@ const NextToFind = () => {
   return (
     <View style={styles.container}>
       <Title title="Next birds to discover!" />
-
       <FlatList
-        style={styles.cardsContainer}
         columnWrapperStyle={styles.spaceBetween}
         data={data}
         numColumns={2}
@@ -33,14 +31,12 @@ const NextToFind = () => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
+    paddingHorizontal: 16,
     width: '100%',
-  },
-  cardsContainer: {
     flex: 1,
-    flexGrow: 0,
-    minHeight: 342,
+    marginBottom: -34,
   },
+
   spaceCardMasonry: {
     width: '4%',
     backgroundColor: 'transparent',

@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import NextToFind from '../components/NextToFind';
 import PopularBirds from '../components/PopularBirds';
 import TextInputMB from '../components/ui/TextInput';
@@ -10,7 +11,7 @@ export const HomeView = () => {
   const [text, setText] = React.useState(initialText);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <TextInputMB
         inputAccessoryViewID={inputAccessoryViewID}
         onChange={setText}
@@ -19,7 +20,7 @@ export const HomeView = () => {
       />
       <PopularBirds />
       <NextToFind />
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -31,7 +31,8 @@ const TextInputMB = ({
 
 const styles = StyleSheet.create({
   containerInputText: {
-    padding: 16,
+    paddingHorizontal: 16,
+    marginBottom: 16,
     width: '100%',
   },
   inputText: {

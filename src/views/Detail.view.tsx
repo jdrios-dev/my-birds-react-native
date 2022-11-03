@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     width: 'auto',
-    height: 180,
+    height: 220,
     borderBottomStartRadius: 50,
     borderBottomEndRadius: 50,
     backgroundColor: colors.bgLigth,

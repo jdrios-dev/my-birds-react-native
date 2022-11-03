@@ -6,11 +6,11 @@ import CardBird from './CardBird';
 import Title from './ui/Title';
 import {data} from '../lib/data';
 
-const PopularBirds = () => {
-  type RenderItemProps = {
-    item: Bird;
-  };
+type RenderItemProps = {
+  item: Bird;
+};
 
+const PopularBirds = () => {
   const renderItem = ({item}: RenderItemProps) => {
     return (
       <CardBird
@@ -25,7 +25,9 @@ const PopularBirds = () => {
 
   return (
     <View style={styles.container}>
-      <Title title="Popular in this zone" />
+      <View style={styles.titleContainer}>
+        <Title title="Popular in this zone" />
+      </View>
 
       <FlatList
         data={data}
@@ -40,24 +42,18 @@ const PopularBirds = () => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
+    paddingVertical: 16,
+    marginBottom: 16,
     width: '100%',
     backgroundColor: colors.bgLigth,
-  },
-  birdCardContainer: {
-    borderColor: colors.mainDark,
-    borderWidth: 2,
-    backgroundColor: 'white',
-    padding: 16,
-    borderRadius: 16,
-    marginRight: 16,
-    height: 170,
-    width: 170,
   },
   cardsContainer: {
     display: 'flex',
     flexWrap: 'wrap',
     flexDirection: 'row',
+  },
+  titleContainer: {
+    marginHorizontal: 16,
   },
 });
 
