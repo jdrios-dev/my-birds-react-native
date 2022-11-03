@@ -1,10 +1,13 @@
 import React from 'react';
-import {Text, View, StyleSheet, Image} from 'react-native';
+import {Text, View, StyleSheet, Image, ScrollView} from 'react-native';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import {data} from '../lib/data';
 import {Bird} from '../lib/types';
-import Title from '../components/Title';
+import Title from '../components/ui/Title';
 import {colors} from '../lib/theme';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import Map from '../components/Map';
+import Button from '../components/ui/Button';
 
 type ParamType = {
   Detail: {
@@ -16,9 +19,13 @@ export const DetailView = () => {
   const {params} = useRoute<RouteProp<ParamType, 'Detail'>>();
   const {id} = params;
 
-  const bird = data.find(item => item.id === id) as Bird;
+  if (!id) {
+    <View>
+      <Text>Please, select a birds first</Text>
+    </View>;
+  }
 
-  console.log('IMAGE', bird.image);
+  const bird = data.find(item => item.id === id) as Bird;
 
   return (
     <View style={styles.container}>
@@ -37,9 +44,32 @@ export const DetailView = () => {
           />
         )}
       </View>
-      <Title title={bird.name} />
-      <Text style={styles.subTitle}>{bird.name}</Text>
-      <Text style={styles.description}>{bird.description}</Text>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={styles.headerContainer}>
+          <View>
+            <Title title={bird.name} />
+            <Text style={styles.subTitle}>{bird.name}</Text>
+          </View>
+          <Icon
+            name="feather-alt"
+            style={bird.isDiscoverd ? styles.icon : styles.greyIcon}
+          />
+        </View>
+        <Text style={styles.description}>{bird.description}</Text>
+        {bird.isDiscoverd ? (
+          <View>
+            <Map />
+          </View>
+        ) : (
+          <View>
+            <Button text="Add Images" onPress={() => {}} />
+            <Text style={[styles.description, styles.smallDescription]}>
+              You can add images and location when you find this bird, go for
+              it!
+            </Text>
+          </View>
+        )}
+      </ScrollView>
     </View>
   );
 };
@@ -56,7 +86,6 @@ const styles = StyleSheet.create({
     borderBottomStartRadius: 50,
     borderBottomEndRadius: 50,
     backgroundColor: colors.bgLigth,
-    marginBottom: 16,
     justifyContent: 'center',
   },
   subTitle: {
@@ -69,6 +98,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: colors.secondDark,
     lineHeight: 30,
+    marginBottom: 16,
+  },
+  smallDescription: {
+    textAlign: 'center',
+    fontSize: 16,
+    lineHeight: 20,
+    color: colors.thirdDark,
   },
   image: {
     flex: 1,
@@ -81,4 +117,13 @@ const styles = StyleSheet.create({
   imagePlaceholder: {
     alignSelf: 'center',
   },
+  headerContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 16,
+  },
+  icon: {color: colors.secondary, fontSize: 60},
+  greyIcon: {color: colors.thirdDark, fontSize: 60},
 });

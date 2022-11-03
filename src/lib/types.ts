@@ -3,4 +3,5 @@ export type Bird = {
   image: string | null;
   name: string;
   description: string;
+  isDiscoverd: boolean;
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import NextToFind from '../components/NextToFind';
 import PopularBirds from '../components/PopularBirds';
-import TextInputMB from '../components/TextInput';
+import TextInputMB from '../components/ui/TextInput';
 
 export const HomeView = () => {
   const inputAccessoryViewID = 'uniqueID';

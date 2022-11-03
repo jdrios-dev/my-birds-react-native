@@ -3,7 +3,7 @@ import {View, StyleSheet, FlatList} from 'react-native';
 import {colors} from '../lib/theme';
 import {Bird} from '../lib/types';
 import CardBird from './CardBird';
-import Title from './Title';
+import Title from './ui/Title';
 import {data} from '../lib/data';
 
 const PopularBirds = () => {

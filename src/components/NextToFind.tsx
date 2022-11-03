@@ -2,7 +2,7 @@ import React from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
 import {data} from '../lib/data';
 import CardBird from './CardBird';
-import Title from './Title';
+import Title from './ui/Title';
 
 const NextToFind = () => {
   return (

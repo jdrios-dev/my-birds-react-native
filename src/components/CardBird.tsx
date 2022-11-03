@@ -22,7 +22,7 @@ const CardBird = ({name, variant, img, id, isMasonry}: CardBirdProps) => {
   const onPress = () => {
     navigation.navigate({
       name: 'Detail',
-      params: {id},
+      params: {id: id},
     });
   };
   return (

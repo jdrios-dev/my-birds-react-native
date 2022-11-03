@@ -7,6 +7,7 @@ export const data: Bird[] = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Anna%27s_hummingbird.jpg/1920px-Anna%27s_hummingbird.jpg',
     description:
       'The grey seedeater (Sporophila intermedia) is a species of bird in the family Thraupidae. It is found in Brazil, Colombia, Ecuador, Guyana, Trinidad and Tobago, and Venezuela. Its natural habitats are subtropical or tropical seasonally wet or flooded lowland grassland and heavily degraded former forest.',
+    isDiscoverd: true,
     name: 'Grey seedeater',
   },
   {
@@ -14,6 +15,7 @@ export const data: Bird[] = [
     image: null,
     description:
       'The grey seedeater (Sporophila intermedia) is a species of bird in the family Thraupidae. It is found in Brazil, Colombia, Ecuador, Guyana, Trinidad and Tobago, and Venezuela. Its natural habitats are subtropical or tropical seasonally wet or flooded lowland grassland and heavily degraded former forest.',
+    isDiscoverd: false,
     name: 'Black-throated flowerpiercer',
   },
   {
@@ -21,6 +23,7 @@ export const data: Bird[] = [
     image: null,
     description:
       'The grey seedeater (Sporophila intermedia) is a species of bird in the family Thraupidae. It is found in Brazil, Colombia, Ecuador, Guyana, Trinidad and Tobago, and Venezuela. Its natural habitats are subtropical or tropical seasonally wet or flooded lowland grassland and heavily degraded former forest.',
+    isDiscoverd: false,
     name: 'Black-headed hemispingus',
   },
   {
@@ -28,6 +31,7 @@ export const data: Bird[] = [
     image: null,
     description:
       'The grey seedeater (Sporophila intermedia) is a species of bird in the family Thraupidae. It is found in Brazil, Colombia, Ecuador, Guyana, Trinidad and Tobago, and Venezuela. Its natural habitats are subtropical or tropical seasonally wet or flooded lowland grassland and heavily degraded former forest.',
+    isDiscoverd: false,
     name: 'Grey seedeater',
   },
   {
@@ -35,6 +39,7 @@ export const data: Bird[] = [
     image: null,
     description:
       'The grey seedeater (Sporophila intermedia) is a species of bird in the family Thraupidae. It is found in Brazil, Colombia, Ecuador, Guyana, Trinidad and Tobago, and Venezuela. Its natural habitats are subtropical or tropical seasonally wet or flooded lowland grassland and heavily degraded former forest.',
+    isDiscoverd: false,
     name: 'Black-throated flowerpiercer',
   },
   {
@@ -42,6 +47,7 @@ export const data: Bird[] = [
     image: null,
     description:
       'The grey seedeater (Sporophila intermedia) is a species of bird in the family Thraupidae. It is found in Brazil, Colombia, Ecuador, Guyana, Trinidad and Tobago, and Venezuela. Its natural habitats are subtropical or tropical seasonally wet or flooded lowland grassland and heavily degraded former forest.',
+    isDiscoverd: false,
     name: 'Black-headed hemispingus',
   },
   {
@@ -50,6 +56,7 @@ export const data: Bird[] = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Multicolored_tanager_chicoral.jpg/1280px-Multicolored_tanager_chicoral.jpg',
     description:
       'The grey seedeater (Sporophila intermedia) is a species of bird in the family Thraupidae. It is found in Brazil, Colombia, Ecuador, Guyana, Trinidad and Tobago, and Venezuela. Its natural habitats are subtropical or tropical seasonally wet or flooded lowland grassland and heavily degraded former forest.',
+    isDiscoverd: true,
     name: 'Grey seedeater',
   },
   {
@@ -57,6 +64,7 @@ export const data: Bird[] = [
     image: null,
     description:
       'The grey seedeater (Sporophila intermedia) is a species of bird in the family Thraupidae. It is found in Brazil, Colombia, Ecuador, Guyana, Trinidad and Tobago, and Venezuela. Its natural habitats are subtropical or tropical seasonally wet or flooded lowland grassland and heavily degraded former forest.',
+    isDiscoverd: false,
     name: 'Black-throated flowerpiercer',
   },
   {
@@ -64,6 +72,7 @@ export const data: Bird[] = [
     image: null,
     description:
       'The grey seedeater (Sporophila intermedia) is a species of bird in the family Thraupidae. It is found in Brazil, Colombia, Ecuador, Guyana, Trinidad and Tobago, and Venezuela. Its natural habitats are subtropical or tropical seasonally wet or flooded lowland grassland and heavily degraded former forest.',
+    isDiscoverd: false,
     name: 'Black-headed hemispingus',
   },
 ];
