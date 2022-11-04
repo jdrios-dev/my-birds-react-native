@@ -1,13 +1,18 @@
 import React from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
-import {data} from '../lib/data';
 import CardBird from './CardBird';
 import Title from './ui/Title';
+import {Bird} from '../lib/types';
 
-const NextToFind = () => {
+type MasonryListProps = {
+  data: Bird[];
+  titleText: string;
+};
+
+const MasonryList = ({data, titleText}: MasonryListProps) => {
   return (
     <View style={styles.container}>
-      <Title title="Next birds to discover!" />
+      <Title title={titleText} />
       <FlatList
         columnWrapperStyle={styles.spaceBetween}
         data={data}
@@ -44,4 +49,4 @@ const styles = StyleSheet.create({
   spaceBetween: {justifyContent: 'space-between'},
 });
 
-export default NextToFind;
+export default MasonryList;

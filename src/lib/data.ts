@@ -76,3 +76,5 @@ export const data: Bird[] = [
     name: 'Black-headed hemispingus',
   },
 ];
+
+export const foundedBirds: Bird[] = data.filter(item => item.isDiscoverd);

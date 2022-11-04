@@ -1,12 +1,13 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import NextToFind from '../components/NextToFind';
+import MasonryList from '../components/MasonryList';
 import PopularBirds from '../components/PopularBirds';
 import TextInputMB from '../components/ui/TextInput';
+import {data} from '../lib/data';
 
 export const HomeView = () => {
-  const inputAccessoryViewID = 'uniqueID';
+  const inputAccessoryViewID = 'home-input-text-id';
   const initialText = '';
   const [text, setText] = React.useState(initialText);
 
@@ -19,7 +20,7 @@ export const HomeView = () => {
         placeholder="Search…"
       />
       <PopularBirds />
-      <NextToFind />
+      <MasonryList titleText="Next to discover" data={data} />
     </SafeAreaView>
   );
 };
