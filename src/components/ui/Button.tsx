@@ -5,16 +5,19 @@ import {colors} from '../../lib/theme';
 type ButtonProps = {
   text: string;
   onPress: () => void;
+  isSecondary?: boolean;
 };
 
-const ButtonMB = ({text, onPress}: ButtonProps) => {
+const ButtonMB = ({text, onPress, isSecondary}: ButtonProps) => {
   return (
     <View>
       <TouchableOpacity
         activeOpacity={0.6}
-        style={styles.button}
+        style={[styles.button, isSecondary ? styles.buttonSecondary : null]}
         onPress={onPress}>
-        <Text style={styles.text}>{text}</Text>
+        <Text style={[styles.text, isSecondary ? styles.textSecondary : null]}>
+          {text}
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -33,6 +36,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'white',
     textTransform: 'uppercase',
+  },
+  buttonSecondary: {
+    backgroundColor: 'white',
+    borderWidth: 2,
+    borderColor: colors.secondary,
+  },
+  textSecondary: {
+    color: colors.secondary,
   },
 });
 

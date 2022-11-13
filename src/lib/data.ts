@@ -8,6 +8,7 @@ export const data: Bird[] = [
     description:
       'The grey seedeater (Sporophila intermedia) is a species of bird in the family Thraupidae. It is found in Brazil, Colombia, Ecuador, Guyana, Trinidad and Tobago, and Venezuela. Its natural habitats are subtropical or tropical seasonally wet or flooded lowland grassland and heavily degraded former forest.',
     isDiscoverd: true,
+    coordinates: [-68.6158697422588, 5.280283050277001],
     name: 'Grey seedeater',
   },
   {
@@ -16,6 +17,7 @@ export const data: Bird[] = [
     description:
       'The grey seedeater (Sporophila intermedia) is a species of bird in the family Thraupidae. It is found in Brazil, Colombia, Ecuador, Guyana, Trinidad and Tobago, and Venezuela. Its natural habitats are subtropical or tropical seasonally wet or flooded lowland grassland and heavily degraded former forest.',
     isDiscoverd: false,
+    coordinates: [0, 0],
     name: 'Black-throated flowerpiercer',
   },
   {
@@ -24,6 +26,7 @@ export const data: Bird[] = [
     description:
       'The grey seedeater (Sporophila intermedia) is a species of bird in the family Thraupidae. It is found in Brazil, Colombia, Ecuador, Guyana, Trinidad and Tobago, and Venezuela. Its natural habitats are subtropical or tropical seasonally wet or flooded lowland grassland and heavily degraded former forest.',
     isDiscoverd: false,
+    coordinates: [0, 0],
     name: 'Black-headed hemispingus',
   },
   {
@@ -32,6 +35,7 @@ export const data: Bird[] = [
     description:
       'The grey seedeater (Sporophila intermedia) is a species of bird in the family Thraupidae. It is found in Brazil, Colombia, Ecuador, Guyana, Trinidad and Tobago, and Venezuela. Its natural habitats are subtropical or tropical seasonally wet or flooded lowland grassland and heavily degraded former forest.',
     isDiscoverd: false,
+    coordinates: [0, 0],
     name: 'Grey seedeater',
   },
   {
@@ -40,6 +44,7 @@ export const data: Bird[] = [
     description:
       'The grey seedeater (Sporophila intermedia) is a species of bird in the family Thraupidae. It is found in Brazil, Colombia, Ecuador, Guyana, Trinidad and Tobago, and Venezuela. Its natural habitats are subtropical or tropical seasonally wet or flooded lowland grassland and heavily degraded former forest.',
     isDiscoverd: false,
+    coordinates: [0, 0],
     name: 'Black-throated flowerpiercer',
   },
   {
@@ -48,6 +53,7 @@ export const data: Bird[] = [
     description:
       'The grey seedeater (Sporophila intermedia) is a species of bird in the family Thraupidae. It is found in Brazil, Colombia, Ecuador, Guyana, Trinidad and Tobago, and Venezuela. Its natural habitats are subtropical or tropical seasonally wet or flooded lowland grassland and heavily degraded former forest.',
     isDiscoverd: false,
+    coordinates: [0, 0],
     name: 'Black-headed hemispingus',
   },
   {
@@ -57,6 +63,7 @@ export const data: Bird[] = [
     description:
       'The grey seedeater (Sporophila intermedia) is a species of bird in the family Thraupidae. It is found in Brazil, Colombia, Ecuador, Guyana, Trinidad and Tobago, and Venezuela. Its natural habitats are subtropical or tropical seasonally wet or flooded lowland grassland and heavily degraded former forest.',
     isDiscoverd: true,
+    coordinates: [-74.91760912916793, 2.9434990827279846],
     name: 'Grey seedeater',
   },
   {
@@ -65,6 +72,7 @@ export const data: Bird[] = [
     description:
       'The grey seedeater (Sporophila intermedia) is a species of bird in the family Thraupidae. It is found in Brazil, Colombia, Ecuador, Guyana, Trinidad and Tobago, and Venezuela. Its natural habitats are subtropical or tropical seasonally wet or flooded lowland grassland and heavily degraded former forest.',
     isDiscoverd: false,
+    coordinates: [0, 0],
     name: 'Black-throated flowerpiercer',
   },
   {
@@ -73,6 +81,7 @@ export const data: Bird[] = [
     description:
       'The grey seedeater (Sporophila intermedia) is a species of bird in the family Thraupidae. It is found in Brazil, Colombia, Ecuador, Guyana, Trinidad and Tobago, and Venezuela. Its natural habitats are subtropical or tropical seasonally wet or flooded lowland grassland and heavily degraded former forest.',
     isDiscoverd: false,
+    coordinates: [0, 0],
     name: 'Black-headed hemispingus',
   },
 ];

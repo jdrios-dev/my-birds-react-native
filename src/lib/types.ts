@@ -4,4 +4,5 @@ export type Bird = {
   name: string;
   description: string;
   isDiscoverd: boolean;
+  coordinates: number[];
 };

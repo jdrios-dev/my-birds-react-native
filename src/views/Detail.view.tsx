@@ -1,13 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Text, View, StyleSheet, Image, ScrollView} from 'react-native';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import {data} from '../lib/data';
-import {Bird} from '../lib/types';
 import Title from '../components/ui/Title';
 import {colors} from '../lib/theme';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Map from '../components/Map';
 import Button from '../components/ui/Button';
+
+import NewBirdModal from '../components/modals/NewBirdModal';
+import {Bird} from '../lib/types';
 
 type ParamType = {
   Detail: {
@@ -18,6 +20,13 @@ type ParamType = {
 export const DetailView = () => {
   const {params} = useRoute<RouteProp<ParamType, 'Detail'>>();
   const {id} = params;
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [coord, setCoord] = useState([0, 0]);
+  const [imageLoaded, setImageLoaded] = useState<string>('');
+  const handleModal = () => {
+    setModalVisible(prev => !prev);
+  };
+  let bird = data.find(item => item.id === id) as Bird;
 
   if (!id) {
     <View>
@@ -25,16 +34,32 @@ export const DetailView = () => {
     </View>;
   }
 
-  const bird = data.find(item => item.id === id) as Bird;
+  if (imageLoaded) {
+    const newBird = {
+      ...bird,
+      coordinates: coord,
+      image: imageLoaded,
+      isDiscoverd: true,
+    };
+    bird = newBird;
+  }
 
   return (
     <View style={styles.container}>
+      <NewBirdModal
+        bird={bird}
+        visible={modalVisible}
+        handleModal={handleModal}
+        setImage={setImageLoaded}
+        setCoord={setCoord}
+        coord={coord}
+      />
       <View style={styles.imageContainer}>
-        {bird.image ? (
+        {bird.image || imageLoaded ? (
           <Image
             style={styles.image}
             source={{
-              uri: bird.image as string,
+              uri: (bird.image as string) || (imageLoaded! as string),
             }}
           />
         ) : (
@@ -58,11 +83,14 @@ export const DetailView = () => {
         <Text style={styles.description}>{bird.description}</Text>
         {bird.isDiscoverd ? (
           <View>
-            <Map />
+            <Map
+              coordinates={bird.coordinates}
+              isDiscoverd={bird.isDiscoverd}
+            />
           </View>
         ) : (
           <View>
-            <Button text="Add Images" onPress={() => {}} />
+            <Button text="Found this bird!?" onPress={handleModal} />
             <Text style={[styles.description, styles.smallDescription]}>
               You can add images and location when you find this bird, go for
               it!
